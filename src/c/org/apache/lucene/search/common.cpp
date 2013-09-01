@@ -15,7 +15,13 @@
  * limitations under the License.
  */
 
+#ifdef __APPLE__
+#include <libkern/OSByteOrder.h>
+#define __bswap_64 OSSwapInt64
+#else
 #include <byteswap.h>
+#endif
+
 #include <stdio.h>
 #include "common.h"
 
